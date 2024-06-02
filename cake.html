@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakery</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <style>
+        body.dark-theme {
+            background-color: #333;
+            color: #fff;
+        }
+        body.light-theme {
+            background-color: #ffe6e6; /* Light pink background */
+            color: #333; /* Dark gray text color */
+        }
+        .accordion .card-header {
+            cursor: pointer;
+        }
+        /* Additional styling to match the light pink theme */
+        .navbar-light.bg-light {
+            background-color: #ffcccc !important; /* Light pink navbar */
+        }
+        .btn-primary {
+            background-color: #334acc;
+            border-color: #334acc;
+        }
+        .btn-primary:hover {
+            background-color: #ff8080;
+            border-color: #ff8080;
+        }
+        .btn-link {
+            color: #334acc; /* Dark red for links */
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Bakery</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                    <li class="nav-item">
+                        <select id="themeSwitcher" class="form-control">
+                            <option value="light-theme">Light Theme</option>
+                            <option value="dark-theme">Dark Theme</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Interactive Gallery Section -->
+    <section id="gallery" class="py-5">
+        <div class="container">
+            <h2 class="text-center">Our Cakes</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="img_1.jpg" class="img-thumbnail" data-toggle="modal" data-target="#cakeModal1">
+                </div>
+                <div class="col-md-4">
+                    <img src="img_2.jpg" class="img-thumbnail" data-toggle="modal" data-target="#cakeModal2">
+                </div>
+                <div class="col-md-4">
+                    <img src="img_3.jpg" class="img-thumbnail" data-toggle="modal" data-target="#cakeModal3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Cake 1 -->
+    <div class="modal fade" id="cakeModal1" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Wedding cake</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <img src="img_1.jpg" class="img-fluid">
+                    <p>This beautiful pink cake decorated with delicate roses and elegant details, perfect for any special occasion</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Cake 2 -->
+    <div class="modal fade" id="cakeModal2" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Strawberry muffins</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <img src="img_2.jpg" class="img-fluid">
+                    <p>These delicious strawberry muffins are perfect for breakfast or a light dessert. Topped with vanilla glaze and enriched with fresh pieces of strawberry.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Cake 3 -->
+    <div class="modal fade" id="cakeModal3" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Macaron Birthday Cake</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <img src="img_3.jpg" class="img-fluid">
+                    <p>This elegant birthday cake is decorated with delicious macarons and rich chocolate frosting perfect for celebrating a special day.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-5">
+        <div class="container">
+            <h2 class="text-center">Frequently Asked Questions</h2>
+            <div id="accordion" class="accordion">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne">
+                                What are your opening hours?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseOne" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            We are open from 9am to 9pm, Monday to Saturday.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo">
+                                Do you offer custom cakes?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            Yes, we offer custom cakes. Please contact us for more details.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree">
+                                Do you deliver?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            Yes, we offer delivery services within the city.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center">Contact Us</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea class="form-control" id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Form validation
+            $('#contactForm').validate({
+                submitHandler: function(form) {
+                    // AJAX form submission
+                    $.ajax({
+                        url: 'contact.php',
+                        type: 'POST',
+                        data: $(form).serialize(),
+                        success: function(response) {
+                            toastr.success('Your message has been sent successfully!');
+                            form.reset();
+                        },
+                        error: function() {
+                            toastr.error('There was an error sending your message.');
+                        }
+                    });
+                    return false; // prevent default form submission
+                }
+            });
+
+            // Theme switcher
+            $('#themeSwitcher').on('change', function() {
+                var theme = $(this).val();
+                $('body').attr('class', theme);
+            });
+
+            // Content toggle
+            $('.toggle-content').click(function() {
+                $(this).
+
+
+
